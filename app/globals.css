@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #071A15;
+  --foreground: #F4F5EF;
+  --color-primary: #18A66A;
+  --color-accent: #F47A35;
+  --color-muted: #A4B2A9;
+  --color-card: #092B20;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono-custom);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), 'Space Grotesk', sans-serif;
+}
+
+/* Responsive utilities */
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex !important;
+  }
+  .hidden.md\:flex {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: none !important;
+  }
+  .hidden {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none !important;
+  }
+}
+
+/* Tailwind responsive overrides */
+@media (min-width: 1024px) {
+  .lg\:flex-row {
+    flex-direction: row !important;
+  }
+  .lg\:block {
+    display: block !important;
+  }
+  .lg\:hidden {
+    display: none !important;
+  }
+  .lg\:items-start {
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 1023px) {
+  .hidden.lg\:block {
+    display: none !important;
+  }
+  .lg\:hidden {
+    display: block !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #071A15;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #18A66A40;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #18A66A80;
+}
+
+/* Selection */
+::selection {
+  background: rgba(24, 166, 106, 0.3);
+  color: #F4F5EF;
 }
